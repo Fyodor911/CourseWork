@@ -7,9 +7,9 @@ void main()
 {
 	setlocale(LC_ALL, "Russian");
 	Menu menu;
-	cout << "Äîáðîãî âðåìåíè ñóòîê. ×òîáû íà÷àòü, íàæìèòå Enter.";
-	getchar();//ñ÷èòûâàåò íàæàòèå Enter
-	while (menu.mainMenu()) //ïîêà ó menu.mainMenu = true âûïîëíÿåò çàäà÷ó ãëàâíîãî ìåíþ
+	cout << "Ð”Ð¾Ð±Ñ€Ð¾Ð³Ð¾ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸ ÑÑƒÑ‚Ð¾Ðº. Ð§Ñ‚Ð¾Ð±Ñ‹ Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ, Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Enter.";
+	getchar();//ÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÑ‚ Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ðµ Enter
+	while (menu.mainMenu()) //Ð¿Ð¾ÐºÐ° Ñƒ menu.mainMenu = true Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÑ‚ Ð·Ð°Ð´Ð°Ñ‡Ñƒ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ Ð¼ÐµÐ½ÑŽ
 	{
 		menu.mainMenu();
 	};
