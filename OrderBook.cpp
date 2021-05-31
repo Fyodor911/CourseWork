@@ -2,23 +2,23 @@
 
 using namespace std;
 
-Order::Order(int i, double p, double r)	// конструктор с тремя параметрами
-: id(i)				// инициализируем поле id переменной i
-, profit(p)				// инициализируем поле profit(прибыль) переменной p
-, resources(r)				// инициализиурем поле resources(ресурсы) переменной r
+Order::Order(int i, double p, double r)	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ С‚СЂРµРјСЏ РїР°СЂР°РјРµС‚СЂР°РјРё
+: id(i)				// РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РїРѕР»Рµ id РїРµСЂРµРјРµРЅРЅРѕР№ i
+, profit(p)				// РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РїРѕР»Рµ profit(РїСЂРёР±С‹Р»СЊ) РїРµСЂРµРјРµРЅРЅРѕР№ p
+, resources(r)				// РёРЅРёС†РёР°Р»РёР·РёСѓСЂРµРј РїРѕР»Рµ resources(СЂРµСЃСѓСЂСЃС‹) РїРµСЂРµРјРµРЅРЅРѕР№ r
 { }
 
-// функция возводит 2 в степень count
+// С„СѓРЅРєС†РёСЏ РІРѕР·РІРѕРґРёС‚ 2 РІ СЃС‚РµРїРµРЅСЊ count
 int iterCount(int count)
 {
 	return pow(2, count);
 }
 
-// конструктор по умолчанию
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 OrderGroup::OrderGroup()
 { }
 
-// конструктор, заполняющий случайным образом
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ, Р·Р°РїРѕР»РЅСЏСЋС‰РёР№ СЃР»СѓС‡Р°Р№РЅС‹Рј РѕР±СЂР°Р·РѕРј
 OrderGroup::OrderGroup(int size)
 {
 	srand(time(0));
@@ -27,16 +27,16 @@ OrderGroup::OrderGroup(int size)
 	}
 }
 
-// деструктор
+// РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 OrderGroup::~OrderGroup()
 {
 	orders.clear();
 }
 
-// функция возвращает массив id у группы Order-ов
+// С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РјР°СЃСЃРёРІ id Сѓ РіСЂСѓРїРїС‹ Order-РѕРІ
 int* OrderGroup::getIds()
 {
-	int* ids = new int[orders.size()]; // size стандартная ф-ция для вектора, в любой момент можно посмотреть размер  
+	int* ids = new int[orders.size()]; // size СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ С„-С†РёСЏ РґР»СЏ РІРµРєС‚РѕСЂР°, РІ Р»СЋР±РѕР№ РјРѕРјРµРЅС‚ РјРѕР¶РЅРѕ РїРѕСЃРјРѕС‚СЂРµС‚СЊ СЂР°Р·РјРµСЂ  
 	for (int i = 0; i < orders.size(); i++) {
 		ids[i] = orders[i].id;
 	}
@@ -53,7 +53,7 @@ Order OrderGroup::getOrderByprofit(double p)
 	return Order();
 }
 
-// функция считает общую прибыль у группы Order-ов
+// С„СѓРЅРєС†РёСЏ СЃС‡РёС‚Р°РµС‚ РѕР±С‰СѓСЋ РїСЂРёР±С‹Р»СЊ Сѓ РіСЂСѓРїРїС‹ Order-РѕРІ
 double OrderGroup::calcprofit()
 {
 	double totalprofit = 0;
@@ -63,7 +63,7 @@ double OrderGroup::calcprofit()
 	return totalprofit;
 }
 
-// функция считает общие затраты у группы Order-ов
+// С„СѓРЅРєС†РёСЏ СЃС‡РёС‚Р°РµС‚ РѕР±С‰РёРµ Р·Р°С‚СЂР°С‚С‹ Сѓ РіСЂСѓРїРїС‹ Order-РѕРІ
 double OrderGroup::calcresources()
 {
 	double totalResources = 0;
@@ -73,13 +73,13 @@ double OrderGroup::calcresources()
 	return totalResources;
 }
 
-// функция добавляет Order в группу Order-ов
+// С„СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»СЏРµС‚ Order РІ РіСЂСѓРїРїСѓ Order-РѕРІ
 void OrderGroup::add(const Order& order)
 {
 	orders.push_back(order);
 }
 
-// функция возвращает массив Order-ов, на месте которых в массиве positions стоят единицы
+// С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РјР°СЃСЃРёРІ Order-РѕРІ, РЅР° РјРµСЃС‚Рµ РєРѕС‚РѕСЂС‹С… РІ РјР°СЃСЃРёРІРµ positions СЃС‚РѕСЏС‚ РµРґРёРЅРёС†С‹
 OrderGroup getTakenOrders(bool* positions, OrderGroup orders)
 {
 	OrderGroup newOrders;
@@ -91,7 +91,7 @@ OrderGroup getTakenOrders(bool* positions, OrderGroup orders)
 	return newOrders;
 }
 
-// функция печатает массив int-ов длины size
+// С„СѓРЅРєС†РёСЏ РїРµС‡Р°С‚Р°РµС‚ РјР°СЃСЃРёРІ int-РѕРІ РґР»РёРЅС‹ size
 void printIntArray(int* arr, int size)
 {
 	for (int i = 0; i < size; i++) {
@@ -100,7 +100,7 @@ void printIntArray(int* arr, int size)
 	cout << endl;
 }
 
-// функция печатает массив bool-ов длины size
+// С„СѓРЅРєС†РёСЏ РїРµС‡Р°С‚Р°РµС‚ РјР°СЃСЃРёРІ bool-РѕРІ РґР»РёРЅС‹ size
 void printBoolArray(bool* arr, int size)
 {
 	for (int i = 0; i < size; i++) {
@@ -109,7 +109,7 @@ void printBoolArray(bool* arr, int size)
 	cout << endl;
 }
 
-// функция печатает массив double-ов длины size
+// С„СѓРЅРєС†РёСЏ РїРµС‡Р°С‚Р°РµС‚ РјР°СЃСЃРёРІ double-РѕРІ РґР»РёРЅС‹ size
 void printDoubleArray(double* arr, int size)
 {
 	for (int i = 0; i < size; i++) {
@@ -118,39 +118,39 @@ void printDoubleArray(double* arr, int size)
 	cout << endl;
 }
 
-// функция печатает группу Order-ов
+// С„СѓРЅРєС†РёСЏ РїРµС‡Р°С‚Р°РµС‚ РіСЂСѓРїРїСѓ Order-РѕРІ
 void OrderGroup::print()
 {
-	cout << "Заказы:" << endl;
+	cout << "Р—Р°РєР°Р·С‹:" << endl;
 	for (int i = 0; i < orders.size(); i++) {
-		cout << "Номер: " << orders[i].id << ", экономическая эффективность(прибыль): " << orders[i].profit << ", Затраты ресурсов: " << orders[i].resources << endl;
+		cout << "РќРѕРјРµСЂ: " << orders[i].id << ", СЌРєРѕРЅРѕРјРёС‡РµСЃРєР°СЏ СЌС„С„РµРєС‚РёРІРЅРѕСЃС‚СЊ(РїСЂРёР±С‹Р»СЊ): " << orders[i].profit << ", Р—Р°С‚СЂР°С‚С‹ СЂРµСЃСѓСЂСЃРѕРІ: " << orders[i].resources << endl;
 	}
 	cout << endl;
 }
 
-// функция считывает массив Order-ов с клавиатуры
+// С„СѓРЅРєС†РёСЏ СЃС‡РёС‚С‹РІР°РµС‚ РјР°СЃСЃРёРІ Order-РѕРІ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 void OrderGroup::input()
 {
 	int size;
-	cout << "	Количество заказов: "; 
+	cout << "	РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ: "; 
 	cin >> size;
 	for (int i = 0; i < size; i++) {
-		cout << "	Введение параметров " << i << " заказа:" << endl;
+		cout << "	Р’РІРµРґРµРЅРёРµ РїР°СЂР°РјРµС‚СЂРѕРІ " << i << " Р·Р°РєР°Р·Р°:" << endl;
 		int id;
 		double p;
 		double r;
-		cout << "	Введите номер: ";
+		cout << "	Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ: ";
 		cin >> id;
-		cout << "	Введите экономическую эффективность(прибыль): ";
+		cout << "	Р’РІРµРґРёС‚Рµ СЌРєРѕРЅРѕРјРёС‡РµСЃРєСѓСЋ СЌС„С„РµРєС‚РёРІРЅРѕСЃС‚СЊ(РїСЂРёР±С‹Р»СЊ): ";
 		cin >> p;
-		cout << "	Введите количество, затрачиваемых ресурсов: ";
+		cout << "	Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ, Р·Р°С‚СЂР°С‡РёРІР°РµРјС‹С… СЂРµСЃСѓСЂСЃРѕРІ: ";
 		cin >> r;
 		add(Order(id, p, r));
 	}
 	cout << endl;
 }
 
-// функция возвращет массив прибылей, отсортированный по убыванию (пузырьком) 
+// С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰РµС‚ РјР°СЃСЃРёРІ РїСЂРёР±С‹Р»РµР№, РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РїРѕ СѓР±С‹РІР°РЅРёСЋ (РїСѓР·С‹СЂСЊРєРѕРј) 
 double* OrderGroup::sortingprofits()
 {
 	int size = orders.size();
@@ -172,7 +172,7 @@ double* OrderGroup::sortingprofits()
 	return profits;
 }
 
-// функция возвращает true, если массив bool-ов длины size полностью заполнен нулями, в противном случае false
+// С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ true, РµСЃР»Рё РјР°СЃСЃРёРІ bool-РѕРІ РґР»РёРЅС‹ size РїРѕР»РЅРѕСЃС‚СЊСЋ Р·Р°РїРѕР»РЅРµРЅ РЅСѓР»СЏРјРё, РІ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ false
 bool isNull(bool* arr, int size)
 {
 	for (int i = 0; i < size; i++) {
@@ -183,7 +183,7 @@ bool isNull(bool* arr, int size)
 	return true;
 }
 
-// функция возваращает массив bool-ов длины size, заполненный нулями
+// С„СѓРЅРєС†РёСЏ РІРѕР·РІР°СЂР°С‰Р°РµС‚ РјР°СЃСЃРёРІ bool-РѕРІ РґР»РёРЅС‹ size, Р·Р°РїРѕР»РЅРµРЅРЅС‹Р№ РЅСѓР»СЏРјРё
 bool* nullArr(int size)
 {
 	bool* arr = new bool[size];
@@ -193,7 +193,7 @@ bool* nullArr(int size)
 	return arr;
 }
 
-// функция копирует данные из одного массива в другой
+// С„СѓРЅРєС†РёСЏ РєРѕРїРёСЂСѓРµС‚ РґР°РЅРЅС‹Рµ РёР· РѕРґРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ РґСЂСѓРіРѕР№
 void copyArrays(bool* from, bool* to, int size)
 {
 	for (int i = 0; i < size; i++) {
@@ -201,7 +201,7 @@ void copyArrays(bool* from, bool* to, int size)
 	}
 }
 
-// функция прибавляет 1 к двоичному числу
+// С„СѓРЅРєС†РёСЏ РїСЂРёР±Р°РІР»СЏРµС‚ 1 Рє РґРІРѕРёС‡РЅРѕРјСѓ С‡РёСЃР»Сѓ
 void getNext(bool* arr, int size)
 {
 	if (size == 0) {
@@ -217,17 +217,17 @@ void getNext(bool* arr, int size)
 	}
 }
 
-// функция выбирает лучшую комбинацию методом полного перебора
+// С„СѓРЅРєС†РёСЏ РІС‹Р±РёСЂР°РµС‚ Р»СѓС‡С€СѓСЋ РєРѕРјР±РёРЅР°С†РёСЋ РјРµС‚РѕРґРѕРј РїРѕР»РЅРѕРіРѕ РїРµСЂРµР±РѕСЂР°
 OrderGroup getBestCombination1(OrderGroup orders, double occupancy, double& bestprofit)
 {
-	int size = orders.orders.size();		// число Order-ов
-	bool* opt = new bool[size];			// оптимальное решение
-	bool* positions = nullArr(size);	// текущие позиции, их мы увеличивать будем
-	double currentBestprofit = 0;		// наибольшая прибыль
-	OrderGroup bestOrders;				// наилучшая группа
+	int size = orders.orders.size();		// С‡РёСЃР»Рѕ Order-РѕРІ
+	bool* opt = new bool[size];			// РѕРїС‚РёРјР°Р»СЊРЅРѕРµ СЂРµС€РµРЅРёРµ
+	bool* positions = nullArr(size);	// С‚РµРєСѓС‰РёРµ РїРѕР·РёС†РёРё, РёС… РјС‹ СѓРІРµР»РёС‡РёРІР°С‚СЊ Р±СѓРґРµРј
+	double currentBestprofit = 0;		// РЅР°РёР±РѕР»СЊС€Р°СЏ РїСЂРёР±С‹Р»СЊ
+	OrderGroup bestOrders;				// РЅР°РёР»СѓС‡С€Р°СЏ РіСЂСѓРїРїР°
 
 	for (int i = 0; i < iterCount(size); i++) {
-		OrderGroup currentOrders = getTakenOrders(positions, orders);		//  currentOrders - текущие Order-ы
+		OrderGroup currentOrders = getTakenOrders(positions, orders);		//  currentOrders - С‚РµРєСѓС‰РёРµ Order-С‹
 		double currentResources = currentOrders.calcresources();
 		if (currentResources <= occupancy) {
 			double currentprofit = currentOrders.calcprofit();
@@ -245,7 +245,7 @@ OrderGroup getBestCombination1(OrderGroup orders, double occupancy, double& best
 	return bestOrders;
 }
 
-// функция выбирает лучшую комбинацию эвристическим алгоритмом
+// С„СѓРЅРєС†РёСЏ РІС‹Р±РёСЂР°РµС‚ Р»СѓС‡С€СѓСЋ РєРѕРјР±РёРЅР°С†РёСЋ СЌРІСЂРёСЃС‚РёС‡РµСЃРєРёРј Р°Р»РіРѕСЂРёС‚РјРѕРј
 OrderGroup getBestCombination2(OrderGroup orders, double occupancy, double& bestprofit)
 {
 	int size = orders.orders.size();
