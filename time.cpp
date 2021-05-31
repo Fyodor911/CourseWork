@@ -10,5 +10,5 @@ TimeFeature::TimeFeature(double start, double finish, int size)
 
 void TimeFeature::print()
 {
-	cout << "Ðàçìåð: " << size << ", Âðåìÿ: " << time << endl;
+	cout << "Ð Ð°Ð·Ð¼ÐµÑ€: " << size << ", Ð’Ñ€ÐµÐ¼Ñ: " << time << endl;
 }
